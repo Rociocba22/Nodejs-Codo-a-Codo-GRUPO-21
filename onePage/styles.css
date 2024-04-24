@@ -1,0 +1,109 @@
+body,html {
+    height: 100%;
+    margin:0;
+}
+
+.section1 {
+    background-color: salmon;
+    height: 100%;
+}
+
+.container-header {
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container-header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    background-color: silver;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 2em;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #f9f8eb;
+    text-transform: uppercase;    
+}
+
+nav a:hover, nav a:focus {
+  color: #0191bc;
+}
+
+.section2 {
+    background-color: whitesmoke;
+	width: 100%;
+    min-height: 250px;
+    padding-top: 10px;
+	margin: auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-areas: "content";
+}
+
+.content { grid-area: content; text-align: center; margin: 5%;}
+
+h2 { 
+    color: #0191bc;
+    margin: 0px;
+}
+
+
+.section3 {
+    display: grid;
+    grid-template-areas:
+        'item1 item2 item3';
+    gap: 10px;
+    background-color:#011222;
+    padding: 10px;
+}
+
+.item1 { grid-area: item1; color: white;}
+.item2 { grid-area: item2; color: white;}
+.item3 { grid-area: item3; color: white;}
+
+.section3 > div {
+    text-align: center;
+    padding: 20px 0;
+    margin: 5%;
+}
+
+.section3-titles {
+    font-size: 1.2rem;
+    margin: 10px;
+    color: #0191bc;
+    padding:10px;
+}
+
+.section4 {
+    background-color: whitesmoke;
+	width: 100%;
+    min-height: 250px;
+    padding-top: 10px;
+	margin: auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-areas: 'content content content';
+    align-items: center;
+    text-align: center;
+}
+
+
+
