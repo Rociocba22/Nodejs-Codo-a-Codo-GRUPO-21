@@ -184,9 +184,20 @@ ol{
         padding-right: 25%;
 }
 
-footer {
+.section7{
     background-color: var(--color_primario_oscuro);
+    color: var(--color_secundario);
     display: grid;
     grid-template-columns: auto auto;
-    
+    padding: 0% 43% 0% 30%;
 }
+
+footer{
+    background-color: var(--color_primario_oscuro);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    min-height: 15%;
+    color: var(--color_secundario);
+    padding: 0% 20% 0% 20%;
+}
+
