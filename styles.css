@@ -1,5 +1,4 @@
-body,
-html {
+body, html {
     height: 100%;
     margin: 0;
 }
@@ -13,7 +12,7 @@ html {
     --color_negro: black;
     --color_blanco: whitesmoke;
     --color_gris: rgb(183, 183, 183);
-    --color_gris_oscuro: rgb(96, 96, 96);
+    --color_gris_oscuro: rgb(77, 76, 76);
 }
 
 h2 {
@@ -43,7 +42,7 @@ h2 {
 }
 
 .container-logo {
-    display: flexbox;
+    display:ruby;
     top: 25%;
     left: 3%;
     height: 7%vh;
@@ -93,7 +92,7 @@ ol{
     padding-left: 20%;
 }
 .section1 {
-    background-color: var(--color_gris_oscuro);
+    background-color: var(--color_gris);
     height: 100%;
     text-align: center;
 }
@@ -122,37 +121,15 @@ ol{
 }
 
 .section3 {
-    height: 25vh;
+    height: 20%;
     display: grid;
     grid-template-columns: auto auto auto;
-    gap: 10px;
     background-color: var(--color_primario_oscuro);
-    padding: 3%;
+    padding: 2% 20% 0% 25%;
 }
-
-.section3 div {
-    display: grid;
-    grid-template-columns:
-        auto auto auto;
-}
-
-/* .item1 {
-    grid-area: item1;
-    color: var(--color_blanco);
-}
-
-.item2 {
-    grid-area: item2;
-    color: var(--color_blanco);
-}
-
-.item3 {
-    grid-area: item3;
-    color: var(--color_blanco);
-} */
 
 .section4 {
-    background-color: var(--color_gris_oscuro);
+    background-color: var(--color_gris);
     width: 100%;
     min-height: 250px;
     padding-top: 10px;
