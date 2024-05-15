@@ -1,11 +1,17 @@
 body,html {
+    font-family: 'Montserrat', sans-serif !important;
     height: 100%;
     margin:0;
 }
 
 .section1 {
-    background-color: rgb(106, 200, 238);
+    background-image: url("img/section1.jpg");
     height: 100%;
+    position: relative;
+    opacity: 0.97;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container-header {
@@ -44,8 +50,11 @@ nav a {
 }
 
 nav a:hover, nav a:focus {
-  color: #fa0303;
-}
+    color: #007F73;
+    animation-name: animation-mouse-over;
+    animation-duration: 0.5s;
+    font-size: 1.05rem;
+  }
 
 .section2 {
     background-color: whitesmoke;
@@ -61,7 +70,7 @@ nav a:hover, nav a:focus {
 .content { grid-area: content; text-align: center; margin: 5%;}
 
 h2 { 
-    color: #0191bc;
+    color: #007F73;
     margin: 0px;
 }
 
@@ -70,26 +79,23 @@ h2 {
     display: grid;
     grid-template-areas:
         'item1 item2 item3';
-    gap: 10px;
-    background-color:#011222;
-    padding: 10px;
+    background-color:#4CCD99;
 }
 
-.item1 { grid-area: item1; color: white;}
-.item2 { grid-area: item2; color: white;}
-.item3 { grid-area: item3; color: white;}
+.item1 { grid-area: item1; color: whitesmoke;}
+.item2 { grid-area: item2; color: whitesmoke;}
+.item3 { grid-area: item3; color: whitesmoke;}
 
 .section3 > div {
     text-align: center;
-    padding: 20px 0;
-    margin: 5%;
+    margin: 10%;
 }
 
 .section3-titles {
     font-size: 1.2rem;
     margin: 10px;
-    color: #0191bc;
-    padding:10px;
+    color: #007F73;
+    padding:5px;
 }
 
 .section4 {
@@ -106,4 +112,7 @@ h2 {
 }
 
 
-
+@keyframes animation-mouse-over {
+    from {font-size: 1rem;}
+    to {font-size: 1.05rem;}
+}
