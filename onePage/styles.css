@@ -114,3 +114,30 @@ h2 {
     from {font-size: 1rem;}
     to {font-size: 1.05rem;}
 }
+
+/* Footer */
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    padding: 1rem 0px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: "DM Sans", sans-serif;
+}
+
+.footer-bottom > small {
+    font-size: 1rem;
+    margin: 0 0.25rem;
+}
+
+.footer-headline > h2 {
+    margin: 0;
+}
+
+.footer-headline > p {
+    margin: 0.75rem 0px; }
