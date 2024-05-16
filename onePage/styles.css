@@ -132,3 +132,7 @@ h2 {
 .iconos{ 
     
 }
+.formulario{
+    background-image: url("img/section1.jpg");
+    background-position: center;
+}
