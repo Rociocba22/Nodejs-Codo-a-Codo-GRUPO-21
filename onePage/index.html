@@ -58,71 +58,76 @@
     </div>
     
     <div class="section4" id="section4">
-        <div class="content">
-            <h2>CONTACTENOS</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem pariatur facere accusantium nemo nulla asperiores. Nisi eaque exercitationem a sint consequatur repellendus vero veniam placeat quisquam libero, blanditiis aspernatur tempore.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A nulla eos nam rem, architecto fuga, molestiae veniam temporibus voluptate blanditiis provident incidunt iure illum voluptatibus, unde deleniti possimus repudiandae nesciunt.</p>
-        </div>
+            <div class="section4-content">
+            <h2>FORMULARIO DE CONTACTO</h2>
+            <form class="needs-validation" novalidate>
+                <div class="col-auto">
+                    <label for="nombre">Ingrese su Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Federico " class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="apellido">Ingrese su Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Ej: Gonzalez" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Ingrese su mail:</label>
+                    <input type="email" name="email" id="email" placeholder="Ej: f.gonzalez@gmail.com" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="numero">Ingrese su Numero Telefonico:</label>
+                    <input type="tel" name="numero" id="numero" placeholder="Ej: 23235235" class="form-control" required>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <button class="btn btn-primary" type="reset">Borrar</button>
+                </div>
+            </form>
+            </div>
     </div>
 
 </body>
-<!--FORMULARIO DE CONTACTO-->
-<form class="formulario" 
-action="https://formsubmit.co/" 
-method="POST"><!--Colocar un correo a donde se desea que se envie el formulario-->
-    <div class="d-flex justify-content-center text-white">
-        <fieldset>
-            <legend>Completa el formulario para contactarnos:</legend><br><br>
-            <div>
-                <label>Ingrese su Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ej: Federico " class="col-md-12 col-6 " required>
-            </div>
-            <br>
-            <div>
-                <label>Ingrese su Apellido:</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Ej: Gonzalez" class="col-md-12 col-6" required>
-            </div>
-            <br>
-            <div>
-                <label>Ingrese su mail:</label>
-                <input type="email" name="email" id="email" placeholder="Ej: f.gonzalez@gmail.com" class="col-md-12 col-6" required>
-            </div>
-            <br>
-            <div>
-                <label>Ingrese su Numero Telefonico:</label>
-                <input type="tel" name="numero" id="numero" placeholder="Ej: 23235235" class="col-md-12 col-6" required>
-            </div>
-            <br>
-            <div>
-                <label>Comentarios:</label>
-                <br>
-                <textarea class="d-none d-md-block" name="comentarios" id="comentarios" cols="50" rows="3" placeholder="Deje su consulta o porque desea que lo contactemos" required></textarea>
-                <textarea class="d-block d-sm-none" name="comentarios" id="comentarios" cols="30" rows="2" placeholder="Deje su consulta o porque desea que lo contactemos" required></textarea>
-                <br><br>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" id="enviar" class="col-md-3 col-4  m-2" >Enviar</button>
-                    <button type="reset" id="borrar" class="col-md-3 col-4 m-2" >Borrar</button>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-</form>
 
 <footer>
-    <div class="footer">
         <small>© Grupo "21" SA. Todos los derechos reservados 2024</small>
-            <a href="#" title="Instagram" class="iconos">
-                <img src="img/instagram.svg" alt='Instagram'>                       
+        <div>
+            <a href="#" title="Instagram">
+                <img class="iconos" src="img/instagram.svg" alt='Instagram'>                       
             </a>
+        </div>
 
-            <a href="#" title="Twitter" class="iconos">
-                <img src="img/twitter.svg" alt='Twitter'>
+        <div>
+            <a href="#" title="Twitter">
+                <img class="iconos" src="img/twitter.svg" alt='Twitter'>
             </a>
-
+        </div>
+        <div>
             <a href="#" title="Whatsapp" class="iconos">
-                <img src="img/whatsapp.svg" alt='Whatsapp'>
+                <img class="iconos" src="img/whatsapp.svg" alt='Whatsapp'>
             </a>
-        </span>
-    </div>
+        </div>
 </footer>
 </html>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>
