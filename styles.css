@@ -163,15 +163,26 @@ footer > div {
       
     nav li {
         margin: 1em 0;
-        background-color: #4CCD99;
+        background-color: whitesmoke;
         border-radius: 10px;
+    }
+
+    nav a{
+        color: black;
+        padding: 30px;
+    }
+
+    nav a:hover, nav a:focus {
+        animation-name: none;
+        animation-duration: 0.5s;
+        font-size: 1rem;
     }
 
     .section3 {
         grid-template-areas:
             'item1'
-            'item 2'
-            'item 3';
+            'item2'
+            'item3';
     }
 
 }
