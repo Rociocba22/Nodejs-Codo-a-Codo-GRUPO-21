@@ -1,17 +1,28 @@
 /*--------SERVIDOR ESTATICO CON EXPRESS-------*/
 const express = require('express');
+const morgan = require('morgan')
 const app = express(); 
 
-let puerto = 3000; //también se puede usar el 8080
+
+app.use(express.json());// express
+app.use(morgan("dev"));//morgan
+
+let puerto = 3000; //también se puede usar el 8080 y el 3001
+
+const usuariosRouter = require('./routes/usuarios');//cuando alguien entre a la dirección de usuarios va a 
+                                                    //visualizar los archivos que están en /usuarios 
 
 app.use(express.static('public')); 
 
-app.listen(puerto, ()=>{
-    console.log(`Servidor express ejecutándose en el ${puerto}`);
+app.use('/usuarios', usuariosRouter); //cada vez que alguien llame a usuarios lo resuelve en usuarios.js
+
+
+app.get('/',(req,res)=>{ 
+    res.send('Servidor funcionando en el localhost');
 });
 
-app.get("/index.html",(req,res)=>{
-    res.sendFile(__dirname+'/public/index.html#section4')//para acceder directamente a la sección formulario
+app.listen(puerto, ()=>{
+    console.log(`Servidor express ejecutándose en el ${puerto}`);
 });
 
 
