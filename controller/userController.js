@@ -69,10 +69,10 @@ const crearUsuario = (req, res) => //debo agregarle try y catch
 const ActualizarUsuario = (req, res) => {
     try {
         const { id } = req.params;
-        const { nombre, apellido, mail } = req.body;
+        //const { nombre, apellido, mail } = req.body; era la lìnea original pero me fallaba actualizar usuario
+        const { nombre, apellido, direccion, mail, telefono, fecha_de_nacimiento } = req.body;
 
-
-        const sql = 'UPDATE usuarios SET nombre = ?, apellido = ?, mail = ? WHERE id = ?';
+        const sql = 'UPDATE usuarios SET nombre = ?, apellido = ?, direccion = ?, mail = ?, telefono = ?, fecha_de_nacimiento = ? WHERE id = ?';
         db.query(sql, [nombre, apellido, mail, id], (err, result) => {
             if (err) throw err;
 
