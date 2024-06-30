@@ -26,3 +26,12 @@ app.listen(puerto, ()=>{
 // COMANDO para instalar NODEMON: npm install -D nodemon
 //COMANDO PARA ACTIVARLO: node --watch index.js                 
 //COMANDO para instalar morgan: npm i morgan. Da más detalles de los errores que pudieran haber
+
+
+
+//  CORS PENDIENTE
+ 
+
+// const cors=require("cors"); en index.js 
+
+// despues app.use(cors())antes de todo y despues de express en index.js;

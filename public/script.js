@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ` 
                 <span> ID: ${usuario.id}, Nombre: ${usuario.nombre}, Apellido: ${usuario.apellido}, direccion: ${usuario.direccion}, Email: ${usuario.mail}, telefono: ${usuario.telefono}</span>
                 <div class="actions"> 
-                    <button class="update" data-id="${usuario.id}" data-nombre="${usuario.nombre}" data-apellido="${usuario.apellido}" data-direccion="${usuario.direccion}" data-mail="${usuario.mail}" data-telefono="${usuario.telefono}"> Actualizar  </button> 
+                    <button class="update btn btn-success" data-id="${usuario.id}" data-nombre="${usuario.nombre}" data-apellido="${usuario.apellido}" data-direccion="${usuario.direccion}" data-mail="${usuario.mail}" data-telefono="${usuario.telefono}"> Actualizar  </button> 
 
-                    <button class="delete" data-id="${usuario.id}"> Eliminar </button>
+                    <button class="delete btn btn-success" data-id="${usuario.id}"> Eliminar </button>
 
                 </div>
             `;

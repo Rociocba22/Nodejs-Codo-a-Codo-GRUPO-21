@@ -26,7 +26,7 @@
             </div>
             <div class="container-header container-header-nav">
                 <div class="logo">
-                    <img class="logo" src="../img/logo.png" alt="">
+                    <img class="logo" src="./img/logo.png" alt="">
                 </div>
                 <nav>
                     <ul>
@@ -34,7 +34,7 @@
                         <li><a href="#section2">Quienes Somos</a></li>
                         <li><a href="#section3">Como comprar</a></li>
                         <li><a href="#section4">Contactenos</a></li>
-                        <li><button><a href="./gestion_usuarios.html#gestionUsuario">Usuario</a></button>
+                        <li><button class="btn btn-primary"><a href="./index.html#mostrarCrearUsuarioFormBtn">Usuario</a></button>
                         </li>
                     </ul>
                 </nav>
@@ -112,6 +112,75 @@
 
         </div>
 
+        <div>
+            <br><br>
+            <h2>GESTION DE USUARIO</h2>
+
+            <button id="mostrarCrearUsuarioFormBtn" class="btn btn-primary">Registrarse</button>
+            <!-- form para CREAR nuevo usuario/REGISTRO-->
+    
+            <form id="crearUsuarioForm" class="hidden" enctype="multipart/form-data">
+                <h2>Crear Usuario</h2>
+                <label for="nombre"> Nombre: </label> <br>
+                <input type="text" id="nombre" name="nombre" required> <br><br>
+    
+                <label for="apellido"> Apellido: </label> <br>
+                <input type="text" id="apellido" name="apellido" required> <br><br>
+    
+                <label for="direccion"> direccion: </label> <br>
+                <input type="text" id="direccion" name="direccion" required> <br><br>
+    
+                <label for="mail"> Mail: </label> <br>
+                <input type="email" id="mail" name="mail" required> <br><br>
+    
+                <label for="telefono"> telefono: </label> <br>
+                <input type="tel" id="telefono" name="telefono" required> <br><br>
+    
+                <!-- SE SUBE LA IMAGEN-->
+                <label for="archivo"> Archivos: </label><br>
+                <input type="file" id="archivo" name="archivo"> <br><br>
+    
+                <button type="submit" class="btn btn-success"> Crear Usuario </button> 
+    
+            </form>
+            <br><br>
+            <h2>Lista de Usuarios</h2>
+            <button id="listarUsuariosBtn" class="btn btn-primary"> Listar Todos Los usuarios</button>
+            <ul id="listaUsuarios">
+            </ul>
+    
+            <!--FORM PARA EDITAR USUARIOS--> <br>
+    
+    
+            <button id="mostrarEditarUsuarioFormBtn" class="btn btn-primary">Editar usuario</button>
+            <form id="editarUsuarioForm" class="hidden" enctype="multipart/form-data">
+                <h2>Editar Usuario</h2> <br><br>
+                <input type="hidden" id="editID" name="editID">
+    
+                <label for="editNombre">Nombre: </label> <br>
+                <input type="text" id="editNombre" name="editNombre" required> <br><br>
+    
+    
+                <label for="editApellido">Apellido: </label> <br>
+                <input type="text" id="editApellido" name="editApellido" required> <br><br>
+    
+                <label for="editDireccion">Direccion: </label> <br>
+                <input type="text" id="editDireccion" name="editDireccion" required> <br><br>
+    
+                <label for="editMail">Mail: </label> <br>
+                <input type="email" id="editMail" name="editMail" required> <br><br>
+    
+                <label for="editTelefono">Telefono: </label> <br>
+                <input type="tel" id="editTelefono" name="editTelefono" required> <br><br>
+    
+                <!-- solo se muestra la imagen.. NO SE PUEDE EDITAR CON MULTER -->
+                <img id="currentImage" src="" alt="imagen actual" width="100px"> <br>
+    
+                <button type="submit" class="btn btn-success"> Actualizar Usuario</button> <br><br><br><br>
+    
+            </form>
+        </div>
+
     </div>
 
         <div class="section4" id="section4">
@@ -174,9 +243,3 @@
 
 <script src="./script.js"></script>
 
-<!-- CORS PENDIENTE
- 
-
-const cors=require("cors"); en index.js 
-
-despues app.use(cors())antes de todo y despues de express en index.js;-->
