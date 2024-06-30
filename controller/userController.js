@@ -43,11 +43,11 @@ const ObtenerUsuarioPorId = (req, res) => {
 const crearUsuario = (req, res) => //debo agregarle try y catch
 {
     try {
-        const { nombre, apellido, direccion, mail, telefono, fecha_de_nacimiento } = req.body; //destructuring
-        const sql = 'INSERT INTO usuarios (nombre, apellido, direccion, mail, telefono, fecha_de_nacimiento) VALUES (?, ?, ?, ?, ?, ?)';
+        const { nombre, apellido, direccion, mail, telefono } = req.body; //destructuring
+        const sql = 'INSERT INTO usuarios (nombre, apellido, direccion, mail, telefono) VALUES (?, ?, ?, ?, ?)';
         //Sentencia de sql que dice insertame los valores en la tabla usuarios reemplazando los signos de pregunta
 
-        db.query(sql, [nombre, apellido, direccion, mail, telefono, fecha_de_nacimiento], (err, result) => {
+        db.query(sql, [nombre, apellido, direccion, mail, telefono], (err, result) => {
             if (err) throw err;
             //con db.query ejecuto la consulta 
 
@@ -70,10 +70,10 @@ const ActualizarUsuario = (req, res) => {
     try {
         const { id } = req.params;
         //const { nombre, apellido, mail } = req.body; era la lìnea original pero me fallaba actualizar usuario
-        const { nombre, apellido, direccion, mail, telefono, fecha_de_nacimiento } = req.body;
+        const { nombre, apellido, direccion, mail, telefono} = req.body;
 
-        const sql = 'UPDATE usuarios SET nombre = ?, apellido = ?, direccion = ?, mail = ?, telefono = ?, fecha_de_nacimiento = ? WHERE id = ?';
-        db.query(sql, [nombre, apellido, mail, id], (err, result) => {
+        const sql = 'UPDATE usuarios SET nombre = ?, apellido = ?, direccion = ?, mail = ?, telefono = ? WHERE id = ?';
+        db.query(sql, [nombre, apellido, direccion, mail, telefono, id], (err, result) => {
             if (err) throw err;
 
 

@@ -26,8 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             apellido: formData.get('apellido'),
             direccion: formData.get('direccion'),
             mail: formData.get('mail'),
-            telefono: formData.get('telefono'),
-            fecha_de_nacimiento: formData.get('fecha_de_nacimiento')
+            telefono: formData.get('telefono')
         }
 
         const response = await fetch('/usuarios',
@@ -60,9 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li'); //creas un li por c/usuario 
             li.innerHTML = /*y a cada li le agregas éstos detalles*/
                 ` 
-                <span> ID: ${usuario.id}, Nombre: ${usuario.nombre}, Apellido: ${usuario.apellido}, direccion: ${usuario.direccion}, Email: ${usuario.mail}, telefono: ${usuario.telefono}, fecha_de_nacimiento: ${usuario.fecha_de_nacimiento}</span>
+                <span> ID: ${usuario.id}, Nombre: ${usuario.nombre}, Apellido: ${usuario.apellido}, direccion: ${usuario.direccion}, Email: ${usuario.mail}, telefono: ${usuario.telefono}</span>
                 <div class="actions"> 
-                    <button class="update" data-id="${usuario.id}" data-nombre="${usuario.nombre}" data-apellido="${usuario.apellido}" data-direccion="${usuario.direccion} "data-mail="${usuario.mail}" data-telefono="${usuario.telefono} data-fecha_de_nacimiento="${usuario.fecha_de_nacimiento}> Actualizar  </button> 
+                    <button class="update" data-id="${usuario.id}" data-nombre="${usuario.nombre}" data-apellido="${usuario.apellido}" data-direccion="${usuario.direccion}" data-mail="${usuario.mail}" data-telefono="${usuario.telefono}"> Actualizar  </button> 
 
                     <button class="delete" data-id="${usuario.id}"> Eliminar </button>
 
@@ -80,15 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const direccion = e.target.getAttribute('data-direccion');
                 const mail = e.target.getAttribute('data-mail');
                 const telefono = e.target.getAttribute('data-telefono');
-                const fecha_de_nacimiento = e.target.getAttribute('data-fecha_de_nacimiento');
 
                 document.getElementById('editID').value = id;
                 document.getElementById('editNombre').value = nombre;
                 document.getElementById('editApellido').value = apellido;
                 document.getElementById('editDireccion').value = direccion;
                 document.getElementById('editMail').value = mail;
-                document.getElementById('edit-telefono').value = telefono;
-                document.getElementById('editFechaDeNacimiento').value = fecha_de_nacimiento;
+                document.getElementById('editTelefono').value = telefono;
 
                 editarUsuarioForm.classList.remove('hidden');
             });
@@ -128,8 +125,7 @@ mostrarEditarUsuarioFormBtn.addEventListener('click', () => {
             apellido: formData.get('editApellido'),
             direccion: formData.get('editDireccion'),
             mail: formData.get('editMail'),
-            telefono: formData.get('editTelefono'),
-            fecha_de_nacimiento: formData.get('edit'),
+            telefono: formData.get('editTelefono')
         }
 
         const response = await fetch(`/usuarios/${id}`,
