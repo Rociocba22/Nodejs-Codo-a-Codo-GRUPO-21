@@ -30,11 +30,11 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
                         <li><a href="#section2">Quienes Somos</a></li>
                         <li><a href="#section3">Como comprar</a></li>
                         <li><a href="#section4">Contactenos</a></li>
-                        <li><button class="btn btn-primary"><a href="./index.html#mostrarCrearUsuarioFormBtn">Usuario</a></button>
+                        <li><button class="btn"><a
+                                    href="./usuarios.html#mostrarCrearUsuarioFormBtn">Usuario</a></button>
                         </li>
                     </ul>
                 </nav>
@@ -112,134 +112,61 @@
 
         </div>
 
-        <div>
-            <br><br>
-            <h2>GESTION DE USUARIO</h2>
 
-            <button id="mostrarCrearUsuarioFormBtn" class="btn btn-primary">Registrarse</button>
-            <!-- form para CREAR nuevo usuario/REGISTRO-->
-    
-            <form id="crearUsuarioForm" class="hidden" enctype="multipart/form-data">
-                <h2>Crear Usuario</h2>
-                <label for="nombre"> Nombre: </label> <br>
-                <input type="text" id="nombre" name="nombre" required> <br><br>
-    
-                <label for="apellido"> Apellido: </label> <br>
-                <input type="text" id="apellido" name="apellido" required> <br><br>
-    
-                <label for="direccion"> direccion: </label> <br>
-                <input type="text" id="direccion" name="direccion" required> <br><br>
-    
-                <label for="mail"> Mail: </label> <br>
-                <input type="email" id="mail" name="mail" required> <br><br>
-    
-                <label for="telefono"> telefono: </label> <br>
-                <input type="tel" id="telefono" name="telefono" required> <br><br>
-    
-                <!-- SE SUBE LA IMAGEN-->
-                <label for="archivo"> Archivos: </label><br>
-                <input type="file" id="archivo" name="archivo"> <br><br>
-    
-                <button type="submit" class="btn btn-success"> Crear Usuario </button> 
-    
-            </form>
-            <br><br>
-            <h2>Lista de Usuarios</h2>
-            <button id="listarUsuariosBtn" class="btn btn-primary"> Listar Todos Los usuarios</button>
-            <ul id="listaUsuarios">
-            </ul>
-    
-            <!--FORM PARA EDITAR USUARIOS--> <br>
-    
-    
-            <button id="mostrarEditarUsuarioFormBtn" class="btn btn-primary">Editar usuario</button>
-            <form id="editarUsuarioForm" class="hidden" enctype="multipart/form-data">
-                <h2>Editar Usuario</h2> <br><br>
-                <input type="hidden" id="editID" name="editID">
-    
-                <label for="editNombre">Nombre: </label> <br>
-                <input type="text" id="editNombre" name="editNombre" required> <br><br>
-    
-    
-                <label for="editApellido">Apellido: </label> <br>
-                <input type="text" id="editApellido" name="editApellido" required> <br><br>
-    
-                <label for="editDireccion">Direccion: </label> <br>
-                <input type="text" id="editDireccion" name="editDireccion" required> <br><br>
-    
-                <label for="editMail">Mail: </label> <br>
-                <input type="email" id="editMail" name="editMail" required> <br><br>
-    
-                <label for="editTelefono">Telefono: </label> <br>
-                <input type="tel" id="editTelefono" name="editTelefono" required> <br><br>
-    
-                <!-- solo se muestra la imagen.. NO SE PUEDE EDITAR CON MULTER -->
-                <img id="currentImage" src="" alt="imagen actual" width="100px"> <br>
-    
-                <button type="submit" class="btn btn-success"> Actualizar Usuario</button> <br><br><br><br>
-    
+    </div>
+
+    <div class="section4" id="section4">
+        <div class="section4-content">
+            <h2>FORMULARIO DE CONTACTO</h2>
+            <form class="needs-validation" novalidate>
+                <div class="col-auto">
+                    <label for="nombre">Ingrese su Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Federico " class="form-control"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="apellido">Ingrese su Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Ej: Gonzalez" class="form-control"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Ingrese su mail:</label>
+                    <input type="email" name="email" id="email" placeholder="Ej: f.gonzalez@gmail.com"
+                        class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="numero">Ingrese su Numero Telefonico:</label>
+                    <input type="tel" name="numero" id="numero" placeholder="Ej: 23235235" class="form-control"
+                        required>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <button class="btn btn-primary" type="reset">Borrar</button>
+                </div>
             </form>
         </div>
-
     </div>
 
-        <div class="section4" id="section4">
-            <div class="section4-content">
-                <h2>FORMULARIO DE CONTACTO</h2>
-                <form class="needs-validation" novalidate>
-                    <div class="col-auto">
-                        <label for="nombre">Ingrese su Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Federico " class="form-control"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="apellido">Ingrese su Apellido:</label>
-                        <input type="text" id="apellido" name="apellido" placeholder="Ej: Gonzalez" class="form-control"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email">Ingrese su mail:</label>
-                        <input type="email" name="email" id="email" placeholder="Ej: f.gonzalez@gmail.com"
-                            class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="numero">Ingrese su Numero Telefonico:</label>
-                        <input type="tel" name="numero" id="numero" placeholder="Ej: 23235235" class="form-control"
-                            required>
-                    </div>
+    <footer>
+        <small>© Grupo "21" SA. Todos los derechos reservados 2024</small>
+        <div>
+            <a href="#" title="Instagram">
+                <img class="iconos" src="./img/instagram.svg" alt='Instagram'>
+            </a>
+        </div>
 
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Enviar</button>
-                        <button class="btn btn-primary" type="reset">Borrar</button>
-                    </div>
-                </form>
-            </div>
-        </div> 
-
-
+        <div>
+            <a href="#" title="Twitter">
+                <img class="iconos" src="./img/twitter.svg" alt='Twitter'>
+            </a>
+        </div>
+        <div>
+            <a href="#" title="Whatsapp" class="iconos">
+                <img class="iconos" src="./img/whatsapp.svg" alt='Whatsapp'>
+            </a>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
 </body>
-
-<footer>
-    <small>© Grupo "21" SA. Todos los derechos reservados 2024</small>
-    <div>
-        <a href="#" title="Instagram">
-            <img class="iconos" src="../img/instagram.svg" alt='Instagram'>
-        </a>
-    </div>
-
-    <div>
-        <a href="#" title="Twitter">
-            <img class="iconos" src="../img/twitter.svg" alt='Twitter'>
-        </a>
-    </div>
-    <div>
-        <a href="#" title="Whatsapp" class="iconos">
-            <img class="iconos" src="../img/whatsapp.svg" alt='Whatsapp'>
-        </a>
-    </div>
-</footer>
-
 </html>
-
-<script src="./script.js"></script>
-

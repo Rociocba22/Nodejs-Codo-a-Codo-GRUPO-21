@@ -7,7 +7,6 @@ html {
 
 .hidden {
     display: none;
-
 }
 
 /*  */
@@ -100,8 +99,7 @@ nav a:focus {
 
 
 .logo {
-    width: 200px;
-    
+    width: 200px;  
 }
 
 nav ul {
@@ -197,24 +195,6 @@ ol {
     margin: 10px;
     color: #007F73;
     padding: 5px;
-}
-
-.section4 {
-    background-image: url("./img/formulario.jpg");
-    background-repeat: repeat-x;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    min-height: 250px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin: auto;
-    text-align: center;
-}
-
-.section4-content {
-    margin: auto;
-    width: 50%;
 }
 
 /* Footer */
