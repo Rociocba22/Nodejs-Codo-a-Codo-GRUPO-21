@@ -1,13 +1,25 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const mostrarCrearUsuarioFormBtn = document.getElementById('mostrarCrearUsuarioFormBtn');
-    const mostrarEditarUsuarioFormBtn = document.getElementById('mostrarEditarUsuarioFormBtn');
+    // const mostrarEditarUsuarioFormBtn = document.getElementById('mostrarEditarUsuarioFormBtn');
     const crearUsuarioForm = document.getElementById('crearUsuarioForm');
     const editarUsuarioForm = document.getElementById('editarUsuarioForm');
     const listarUsuariosBtn = document.getElementById('listarUsuariosBtn');
     const listaUsuarios = document.getElementById('listaUsuarios');
+    
+
+//---------------------SECCION PRODUCTOS-----------------------
 
 
+
+
+
+
+
+
+
+
+    //------------------SECCION USUARIOS-----------------------
     //TOGGLE form de creación de usuario-----------------------
 
     mostrarCrearUsuarioFormBtn.addEventListener('click', () => {

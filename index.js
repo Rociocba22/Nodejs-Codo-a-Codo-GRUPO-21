@@ -5,12 +5,14 @@ const app = express();
 const path = require('path');
 const usuariosRouter = require('./routes/usuarios');/*cuando alguien entre a la dirección de usuarios va a 
 visualizar los archivos que están en /usuarios */
+const productosRouter = require('./routes/productos');
 
 
 app.use(express.json());// express
 app.use(morgan("dev"));//morgan
 app.use(express.static('public')); 
 app.use('/usuarios',usuariosRouter); //cada vez que alguien llame a usuarios lo resuelve en usuarios.js
+app.use('/productos', productosRouter);
 app.use(express.static(path.join(__dirname,'public')));
 
 let puerto = 3000; //también se puede usar el 8080 y el 3001
