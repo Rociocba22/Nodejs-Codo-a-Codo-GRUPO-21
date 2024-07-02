@@ -6,16 +6,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const editarUsuarioForm = document.getElementById('editarUsuarioForm');
     const listarUsuariosBtn = document.getElementById('listarUsuariosBtn');
     const listaUsuarios = document.getElementById('listaUsuarios');
-    
-
-//---------------------SECCION PRODUCTOS-----------------------
 
 
 
+    //------------------SECCION PRODUCTOS-----------------------
 
+    document.addEventListener('DOMContentLoaded', async () => {
+        await mostrarTodosLosProductos();
+    });
 
+    async function mostrarTodosLosProductos() {
+        try {
+            let response = await fetch('/productos/');
+            if (!response.ok) {
+                throw new Error('Error al obtener los productos');
+            }
 
+            const productos = await response.json();
 
+            const listaProductos = document.getElementById('listaProductos'); 
+            listaProductos.innerHTML = '';
+            
+
+            productos.forEach(producto => {
+                const article = document.createElement('article');
+                article.innerHTML = `
+              <div class="producto card mb-4">
+                    <img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-imagen card-img-top">
+                    <div class="producto-info card-body">
+                        <h3 class="card-title">${producto.nombre}</h3>
+                        <p class="card-text">${producto.descripcion}</p>
+                        <p class="card-text">Precio: €${producto.precio}</p>
+                        <p class="card-text">Talla: ${producto.talla}</p>
+                        <p class="card-text">Disponible desde: ${new Date(producto.fecha_ingreso).toLocaleDateString()}</p>
+                    </div>
+                </div>
+            `;
+                listaProductos.appendChild(article);
+            });
+        } catch (error) {
+            return res.status(500).json({
+                message: error.message,
+            });
+        }
+    }mostrarTodosLosProductos();
 
 
 
@@ -118,13 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-});
+    //TOGGLE form de edición de usuario
 
-//TOGGLE form de edición de usuario
-
-mostrarEditarUsuarioFormBtn.addEventListener('click', () => {
-    editarUsuarioForm.classList.toggle('hidden');
-});
+    mostrarEditarUsuarioFormBtn.addEventListener('click', () => {
+        editarUsuarioForm.classList.toggle('hidden');
+    });
 
     //EDITAR USUARIO
     editarUsuarioForm.addEventListener('submit', async (e) => {
@@ -157,6 +189,10 @@ mostrarEditarUsuarioFormBtn.addEventListener('click', () => {
         listarUsuarios();
 
     });
+
+});
+
+
 
 //--------------VALIDACION FORMULARIO DE CONTACTO
 
