@@ -229,7 +229,7 @@ footer>div {
 
 .producto-imagen {
     width: 150px;
-    height: auto;
+    height: 150px;
     margin-right: 15px;
     border-radius: 5px;
 }

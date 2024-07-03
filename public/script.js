@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const article = document.createElement('article');
                 article.innerHTML = `
               <div class="producto card mb-4">
-                    <img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-imagen card-img-top">
+                    <img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-imagen">
                     <div class="producto-info card-body">
                         <h3 class="card-title">${producto.nombre}</h3>
                         <p class="card-text">${producto.descripcion}</p>
