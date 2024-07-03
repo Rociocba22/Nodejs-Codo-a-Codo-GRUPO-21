@@ -11,10 +11,10 @@ const connection = mySql.createConnection(
         database: 'grupo21'
         */
 
-        host : process.env.DB_Host ,
+        /* host : process.env.DB_Host ,
         user: process.env.DB_Usuario,
         password : process.env.DB_Password,
-        database: process.env.DB_Name
+        database: process.env.DB_Name */
 
     });
 
