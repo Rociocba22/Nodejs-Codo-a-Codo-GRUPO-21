@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nombre: formData.get('nombre'),
             apellido: formData.get('apellido'),
-            direccion: formData.get('direccion'),
-            mail: formData.get('mail'),
+            direccion: formData.get('domicilio'),
+            mail: formData.get('email'),
             telefono: formData.get('telefono')
         }
 
@@ -105,9 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li'); //creas un li por c/usuario 
             li.innerHTML = /*y a cada li le agregas éstos detalles*/
                 ` 
-                <span> ID: ${usuario.id}, Nombre: ${usuario.nombre}, Apellido: ${usuario.apellido}, direccion: ${usuario.direccion}, Email: ${usuario.mail}, telefono: ${usuario.telefono}</span>
+                <span> ID: ${usuario.id}, Nombre: ${usuario.nombre}, Apellido: ${usuario.apellido}, domicilio: ${usuario.domicilio}, Email: ${usuario.email}, telefono: ${usuario.telefono}</span>
                 <div class="actions"> 
-                    <button class="update btn btn-success" data-id="${usuario.id}" data-nombre="${usuario.nombre}" data-apellido="${usuario.apellido}" data-direccion="${usuario.direccion}" data-mail="${usuario.mail}" data-telefono="${usuario.telefono}"> Actualizar  </button> 
+                    <button class="update btn btn-success" data-id="${usuario.id}" data-nombre="${usuario.nombre}" data-apellido="${usuario.apellido}" data-domicilio="${usuario.domicilio}" data-email="${usuario.email}" data-telefono="${usuario.telefono}"> Actualizar  </button> 
 
                     <button class="delete btn btn-danger" data-id="${usuario.id}"> Eliminar </button>
 
@@ -122,15 +122,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const id = e.target.getAttribute('data-id');
                 const nombre = e.target.getAttribute('data-nombre');
                 const apellido = e.target.getAttribute('data-apellido');
-                const direccion = e.target.getAttribute('data-direccion');
-                const mail = e.target.getAttribute('data-mail');
+                const domicilio = e.target.getAttribute('data-domicilio');
+                const email = e.target.getAttribute('data-email');
                 const telefono = e.target.getAttribute('data-telefono');
 
                 document.getElementById('editID').value = id;
                 document.getElementById('editNombre').value = nombre;
                 document.getElementById('editApellido').value = apellido;
-                document.getElementById('editDireccion').value = direccion;
-                document.getElementById('editMail').value = mail;
+                document.getElementById('editDomicilio').value = domicilio;
+                document.getElementById('editEmail').value = email;
                 document.getElementById('editTelefono').value = telefono;
 
                 editarUsuarioForm.classList.remove('hidden');
@@ -167,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nombre: formData.get('editNombre'),
             apellido: formData.get('editApellido'),
-            direccion: formData.get('editDireccion'),
-            mail: formData.get('editMail'),
+            direccion: formData.get('editDomicilio'),
+            mail: formData.get('editEmail'),
             telefono: formData.get('editTelefono')
         }
 
