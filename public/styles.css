@@ -221,7 +221,7 @@ footer>div {
 .producto {
     background-color:antiquewhite;
     display: flex;
-    align-items:baseline;
+    align-items:stretch;
     border: 4px solid black;
     margin-bottom: 10px;
     padding: 10px;
@@ -229,14 +229,26 @@ footer>div {
 }
 
 .producto-imagen {
-    width: 100px;
-    height: 150px;
-    margin-right: 15px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    /* margin-right: 15px; */
     border-radius: 5px;
-    border: 1px solid black;
+    border: 2px solid black;
+}
+
+.col{
+    display: flex;
+}
+
+.producto.card{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .producto-info {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }

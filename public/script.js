@@ -24,32 +24,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const productos = await response.json();
 
-            const listaProductos = document.getElementById('listaProductos'); 
+            const listaProductos = document.getElementById('listaProductos');
             listaProductos.innerHTML = '';
-            
 
-            productos.forEach(producto => {
-                const article = document.createElement('article');
-                article.innerHTML = `
-              <div class="producto card mb-4">
-                    <img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-imagen">
-                    <div class="producto-info card-body">
-                        <h3 class="card-title">${producto.nombre}</h3>
-                        <p class="card-text">${producto.descripcion}</p>
-                        <p class="card-text">Precio: €${producto.precio}</p>
-                        <p class="card-text">Talla: ${producto.talla}</p>
-                        <p class="card-text">Disponible desde: ${new Date(producto.fecha_ingreso).toLocaleDateString()}</p>
+            let row;
+            productos.forEach((producto, index) => {
+                if (index % 3 === 0) {
+                    row = document.createElement('div');
+                    row.className = 'row mb-4';
+                    listaProductos.appendChild(row);
+                }
+                const col = document.createElement('div');
+                col.className = 'col';
+                col.innerHTML = `
+                    <div class="producto card mb-4">
+                        <img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-imagen card-img-top">
+                        <div class="producto-info card-body">
+                            <h3 class="card-title">${producto.nombre}</h3>
+                            <p class="card-text">${producto.descripcion}</p>
+                            <p class="card-text">Precio: €${producto.precio}</p>
+                            <p class="card-text">Talla: ${producto.talla}</p>
+                            <p class="card-text">Disponible desde: ${new Date(producto.fecha_ingreso).toLocaleDateString()}</p>
+                        </div>
                     </div>
-                </div>
-            `;
-                listaProductos.appendChild(article);
+                `;
+                row.appendChild(col);
             });
+            // productos.forEach(producto => {
+            //     const article = document.createElement('article');
+            //     article.innerHTML = `
+            //   <div class="producto card mb-4">
+            //         <img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-imagen">
+            //         <div class="producto-info card-body">
+            //             <h3 class="card-title">${producto.nombre}</h3>
+            //             <p class="card-text">${producto.descripcion}</p>
+            //             <p class="card-text">Precio: €${producto.precio}</p>
+            //             <p class="card-text">Talla: ${producto.talla}</p>
+            //             <p class="card-text">Disponible desde: ${new Date(producto.fecha_ingreso).toLocaleDateString()}</p>
+            //         </div>
+            //     </div>
+            // `;
+            //     listaProductos.appendChild(article);
+            // });
         } catch (error) {
             return res.status(500).json({
                 message: error.message,
             });
         }
-    }mostrarTodosLosProductos();
+    } mostrarTodosLosProductos();
 
 
 

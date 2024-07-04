@@ -6,7 +6,7 @@ const path = require('path');
 const usuariosRouter = require('./routes/usuarios');/*cuando alguien entre a la dirección de usuarios va a 
 visualizar los archivos que están en /usuarios */
 const productosRouter = require('./routes/productos');
-require('dotenv').config();
+// require('dotenv').config();
 
 
 app.use(express.json());// express
@@ -17,7 +17,7 @@ app.use('/productos',productosRouter);
 app.use(express.static(path.join(__dirname,'public')));
 
 //let puerto = 3000; //también se puede usar el 8080 y el 3001
-const puerto=process.env.puerto;
+const puerto=process.env.puerto || 3000;
 
 app.listen(puerto, ()=>{
     console.log(`Servidor express ejecutándose en el ${puerto}`);
