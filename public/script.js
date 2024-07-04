@@ -44,28 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="card-text">${producto.descripcion}</p>
                             <p class="card-text">Precio: €${producto.precio}</p>
                             <p class="card-text">Talla: ${producto.talla}</p>
-                            <p class="card-text">Disponible desde: ${new Date(producto.fecha_ingreso).toLocaleDateString()}</p>
                         </div>
                     </div>
                 `;
                 row.appendChild(col);
             });
-            // productos.forEach(producto => {
-            //     const article = document.createElement('article');
-            //     article.innerHTML = `
-            //   <div class="producto card mb-4">
-            //         <img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-imagen">
-            //         <div class="producto-info card-body">
-            //             <h3 class="card-title">${producto.nombre}</h3>
-            //             <p class="card-text">${producto.descripcion}</p>
-            //             <p class="card-text">Precio: €${producto.precio}</p>
-            //             <p class="card-text">Talla: ${producto.talla}</p>
-            //             <p class="card-text">Disponible desde: ${new Date(producto.fecha_ingreso).toLocaleDateString()}</p>
-            //         </div>
-            //     </div>
-            // `;
-            //     listaProductos.appendChild(article);
-            // });
+        
         } catch (error) {
             return res.status(500).json({
                 message: error.message,
@@ -92,8 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nombre: formData.get('nombre'),
             apellido: formData.get('apellido'),
-            direccion: formData.get('domicilio'),
-            mail: formData.get('email'),
+            domicilio: formData.get('domicilio'),
+            email: formData.get('email'),
             telefono: formData.get('telefono')
         }
 
