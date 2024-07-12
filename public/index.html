@@ -36,8 +36,9 @@
                     </button>
                     <div class="collapse navbar-collapse custom-navbar" id="navbarToggler">
                         <ul class="navbar-nav ms-auto smb-2 mb-lg-0">
-                            <li class="nav-item"><a aria-current="page" href="index.html#listaProductos">Productos</a></li>
-                           
+                            <li class="nav-item"><a aria-current="page" href="index.html#listaProductos">Productos</a>
+                            </li>
+
                             <li class="nav-item"><a href="#section3">Quienes somos</a></li>
                             <li class="nav-item"><a href="#section3">Como comprar</a></li>
                             <li class="nav-item">
@@ -45,7 +46,7 @@
                             </li>
                             <li class="nav-item"><a href="#contacto">Contacto</a></li>
 
-                                <!-- Menú desplegable del nav -->
+                            <!-- Menú desplegable del nav -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white fw-bold avatar-dropdown-toggle" href="#"
                                     id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +55,7 @@
                                 </a>
                                 <!--nav-link dropdown-toggle Un enlace que activa el menú desplegable al hacer clic en él.-->
                                 <ul class="dropdown-menu dropdown-menu-end custom-dropdown-menu"
-                                    aria-labelledby="navbarDropdown"> 
+                                    aria-labelledby="navbarDropdown">
                                     <!-- dropdown-menu: Contiene varios enlaces (dropdown-item) que permiten al usuario registrarse, iniciar sesión, ver su perfil, acceder al dashboard y cerrar sesión.-->
                                     <li>
                                         <a class="dropdown-item" href="./auth/register/registro.html">Registro</a>
@@ -132,36 +133,45 @@
 
     <!-------------- SECCION PRODUCTOS --------------->
     <main>
-        <!-- <div class="container mt-4">
+        <!-- Selector de Categorías -->
+        <div class="container mt-4">
             <label for="selector-categorias" class="form-label">Seleccionar Categoría:</label>
             <select id="selector-categorias" class="form-select">
                 <option value="">Todas las categorías</option>
-                 //Las opciones se cargarán dinámicamente aquí 
+                <!-- Las opciones se cargarán dinámicamente aquí -->
             </select>
-        </div> -->
+        </div>
 
+
+        <!-- Contenedor de Productos -->
+        <div class="container-fluid bg-light py-5">
+            <div class="container" id="productos-container">
+                <!-- Aquí se llenarán dinámicamente los productos -->
+            </div>
+                
+        </div>
         <!-- Contenedor de Productos -->
         <div class="container mt-4" id="listaProductos">
 
             <div class="container" id="productos-container">
 
                 <h2>Lista de productos</h2> <br>
-            <div class="align-items-start">
+                <div class="align-items-start">
 
-            </div>
+                </div>
 
-            <div class="row align-items-center">
+                <div class="row align-items-center">
 
-            </div>
+                </div>
 
 
-            <div class="row align-items-end">
+                <div class="row align-items-end">
 
-            </div>
+                </div>
                 <!-- Aquí se llenarán dinámicamente los productos -->
-              </div>
+            </div>
             <br>
-            
+
 
 
         </div>
@@ -215,7 +225,7 @@
             </div>
         </div>
 
-      <!-------------- LOCALES --------------->
+        <!-------------- LOCALES --------------->
 
         <div class="locales" id="locales"> <!--ACA AGREGUÉ UNA CLASE NUEVA QUE NO TIENE CSS ANTES ERA SECTION3 -->
 
@@ -310,18 +320,18 @@
             </a>
         </div>
     </footer>
-  <!-- Bootstrap JS y archivos JavaScript personalizados -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+    <!-- Bootstrap JS y archivos JavaScript personalizados -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
-  <script src="./productos_and_categorias.js"></script>
-  <script src="./contacto/contacto.js"></script>
-  <script src="./perfil/perfil.js"></script>
-  <script src="./auth/logout/logout.js"></script>
-  <script src="./dashboard/dashboard.js"></script>
+    <script src="./productos_and_categorias.js"></script>
+    <script src="./contacto/contacto.js"></script>
+    <script src="./perfil/perfil.js"></script>
+    <script src="./auth/logout/logout.js"></script>
+    <script src="./dashboard/dashboard.js"></script>
 
-  <!-- Script para verificar el rol y mostrar el enlace al Dashboard -->
+    <!-- Script para verificar el rol y mostrar el enlace al Dashboard -->
 </body>
 
 </html>
