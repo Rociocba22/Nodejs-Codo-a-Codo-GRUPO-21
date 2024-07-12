@@ -1,224 +1,63 @@
+//------------------MOSTRAR PRODUCTOS-----------------------
 
-document.addEventListener('DOMContentLoaded', () => {
-    const mostrarCrearUsuarioFormBtn = document.getElementById('mostrarCrearUsuarioFormBtn');
-    // const mostrarEditarUsuarioFormBtn = document.getElementById('mostrarEditarUsuarioFormBtn');
-    const crearUsuarioForm = document.getElementById('crearUsuarioForm');
-    const editarUsuarioForm = document.getElementById('editarUsuarioForm');
-    const listarUsuariosBtn = document.getElementById('listarUsuariosBtn');
-    const listaUsuarios = document.getElementById('listaUsuarios');
-
-
-
-    //------------------SECCION PRODUCTOS-----------------------
-
-    document.addEventListener('DOMContentLoaded', async () => {
-        await mostrarTodosLosProductos();
-    });
-
-    async function mostrarTodosLosProductos() {
-        try {
-            let response = await fetch('/productos/');
-            if (!response.ok) {
-                throw new Error('Error al obtener los productos');
-            }
-
-            const productos = await response.json();
-
-            const listaProductos = document.getElementById('listaProductos');
-            listaProductos.innerHTML = '';
-
-            let row;
-            productos.forEach((producto, index) => {
-                if (index % 3 === 0) {
-                    row = document.createElement('div');
-                    row.className = 'row mb-4';
-                    listaProductos.appendChild(row);
-                }
-                const col = document.createElement('div');
-                col.className = 'col';
-                col.innerHTML = `
-                    <div class="producto card mb-4">
-                        <img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-imagen card-img-top">
-                        <div class="producto-info card-body">
-                            <h3 class="card-title">${producto.nombre}</h3>
-                            <p class="card-text">${producto.descripcion}</p>
-                            <p class="card-text">Precio: €${producto.precio}</p>
-                            <p class="card-text">Talla: ${producto.talla}</p>
-                        </div>
-                    </div>
-                `;
-                row.appendChild(col);
-            });
-        
-        } catch (error) {
-            return res.status(500).json({
-                message: error.message,
-            });
+const mostrarTodosLosProductos = async () => {
+    try {
+      let response = await fetch("/productos");
+      if (!response.ok) {
+        throw new Error("Error al obtener los productos");
+      }
+      const productos = await response.json();
+      // console.log(productos);
+      const containerProductos = document.getElementById("productos-container");
+      containerProductos.innerHTML = "";
+  
+      let row; // Variable para almacenar la fila actual
+  
+      productos.forEach((producto, index) => {
+        // Crear una nueva fila cada 4 productos o al inicio
+        if (index % 4 === 0) {
+          row = document.createElement("div");
+          row.classList.add("row", "mb-4"); // Agregar margen inferior para separar las filas
+          containerProductos.appendChild(row);
         }
-    } mostrarTodosLosProductos();
-
-
-
-    //------------------SECCION USUARIOS-----------------------
-    //TOGGLE form de creación de usuario-----------------------
-
-    mostrarCrearUsuarioFormBtn.addEventListener('click', () => {
-        crearUsuarioForm.classList.toggle('hidden');
-    });
-
-
-    //CREARNOS UN NUEVO USUARIO-------------------------------
-
-    crearUsuarioForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(crearUsuarioForm);
-        const data = //es un json que obtiene los valores del form
-        {
-            nombre: formData.get('nombre'),
-            apellido: formData.get('apellido'),
-            domicilio: formData.get('domicilio'),
-            email: formData.get('email'),
-            telefono: formData.get('telefono')
-        }
-
-        const response = await fetch('/usuarios',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-        const result = await response.json();
-        alert("Usuario Creado Con EXITO");
-
-        crearUsuarioForm.reset();
-        crearUsuarioForm.classList.add('hidden');
-        listarUsuarios();
-    });
-
-    //listar todos los usuarios
-
-    listarUsuariosBtn.addEventListener('click', listarUsuarios);
-
-    async function listarUsuarios() {
-        const response = await fetch('/usuarios/');
-        const usuarios = await response.json();
-        listaUsuarios.innerHTML = '';//limpio la lista de usuarios y después le vovleré a pasar los datos nuevos
-
-        usuarios.forEach(usuario => {//por cada usuario que recibas que me lleguen desde response
-            const li = document.createElement('li'); //creas un li por c/usuario 
-            li.innerHTML = /*y a cada li le agregas éstos detalles*/
-                ` 
-                <span> ID: ${usuario.id}, Nombre: ${usuario.nombre}, Apellido: ${usuario.apellido}, domicilio: ${usuario.domicilio}, Email: ${usuario.email}, telefono: ${usuario.telefono}</span>
-                <div class="actions"> 
-                    <button class="update btn btn-success" data-id="${usuario.id}" data-nombre="${usuario.nombre}" data-apellido="${usuario.apellido}" data-domicilio="${usuario.domicilio}" data-email="${usuario.email}" data-telefono="${usuario.telefono}"> Actualizar  </button> 
-
-                    <button class="delete btn btn-danger" data-id="${usuario.id}"> Eliminar </button>
-
-                </div>
-            `;
-
-            listaUsuarios.appendChild(li);
-        });
-
-        document.querySelectorAll('.update').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const id = e.target.getAttribute('data-id');
-                const nombre = e.target.getAttribute('data-nombre');
-                const apellido = e.target.getAttribute('data-apellido');
-                const domicilio = e.target.getAttribute('data-domicilio');
-                const email = e.target.getAttribute('data-email');
-                const telefono = e.target.getAttribute('data-telefono');
-
-                document.getElementById('editID').value = id;
-                document.getElementById('editNombre').value = nombre;
-                document.getElementById('editApellido').value = apellido;
-                document.getElementById('editDomicilio').value = domicilio;
-                document.getElementById('editEmail').value = email;
-                document.getElementById('editTelefono').value = telefono;
-
-                editarUsuarioForm.classList.remove('hidden');
-            });
-        });
-
-        document.querySelectorAll('.delete').forEach(button => {
-            button.addEventListener('click', async (e) => {
-                const id = e.target.getAttribute('data-id');
-                const response = await fetch(`/usuarios/${id}`, {
-                    method: 'DELETE'
-                });
-
-                const result = await response.json();
-                alert(result.message);
-                listarUsuarios();
-            });
-
-        });
+  
+        // Crear una columna para cada producto
+        const col = document.createElement("div");
+        col.classList.add("col-lg-3", "col-md-4", "col-sm-6"); // Tamaños de columna responsivos
+        col.innerHTML = `
+          <div class="card">
+            <img src="${producto.imagen_url}" alt="${producto.nombre}" class="img-fluid">
+            <div class="card-body">
+              <h6 class="card-title">${producto.nombre}</h6>
+              <p class="card-text">${producto.descripcion}</p>
+              <p class="card-text">Precio: €${producto.precio}</p>
+              <p class="card-text">Talla: ${producto.talla}</p>
+            </div>
+          </div>
+        `;
+        row.appendChild(col); // Agregar la columna al row actual
+      });
+    } catch (error) {
+      console.error("Error al cargar productos:", error);
     }
-
-    //TOGGLE form de edición de usuario
-
-    mostrarEditarUsuarioFormBtn.addEventListener('click', () => {
-        editarUsuarioForm.classList.toggle('hidden');
-    });
-
-    //EDITAR USUARIO
-    editarUsuarioForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(editarUsuarioForm);
-        const id = formData.get('editID');
-        const data =
-        {
-            nombre: formData.get('editNombre'),
-            apellido: formData.get('editApellido'),
-            direccion: formData.get('editDomicilio'),
-            mail: formData.get('editEmail'),
-            telefono: formData.get('editTelefono')
-        }
-
-        const response = await fetch(`/usuarios/${id}`,
-            {
-                method: 'PUT',
-                headers:
-                {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-        const result = await response.json();
-        alert(result.message);
-        editarUsuarioForm.reset();
-        editarUsuarioForm.classList.add('hidden');
-        listarUsuarios();
-
-    });
-
-});
+  };
+  
+  // Llamar a la función para cargar categorías y mostrar productos cuando se carga el DOM
+  document.addEventListener("DOMContentLoaded", async () => {
+    mostrarTodosLosProductos(); // Mostrar todos los productos inicialmente
+  });
+  
+  // Agregar evento para mostrar productos según la categoría seleccionada
+  
 
 
 
-//--------------VALIDACION FORMULARIO DE CONTACTO
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-    'use strict'
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-})()
+// document.addEventListener('DOMContentLoaded', () => {
+//     const mostrarCrearUsuarioFormBtn = document.getElementById('mostrarCrearUsuarioFormBtn');
+//     // const mostrarEditarUsuarioFormBtn = document.getElementById('mostrarEditarUsuarioFormBtn');
+//     const crearUsuarioForm = document.getElementById('crearUsuarioForm');
+//     const editarUsuarioForm = document.getElementById('editarUsuarioForm');
+//     const listarUsuariosBtn = document.getElementById('listarUsuariosBtn');
+//     const listaUsuarios = document.getElementById('listaUsuarios');
